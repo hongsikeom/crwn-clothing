@@ -1,3 +1,6 @@
+import { UserActionTypes } from './user.types';
+
+
 // Initial state
 const INITIAL_STATE = {
     currentUser: null
@@ -9,7 +12,7 @@ const INITIAL_STATE = {
 // A reducer's function signature is: (state, action) => newState
 const userReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case 'SET_CURRENT_USER':
+        case UserActionTypes.SET_CURRENT_USER:
             return {
                 ...state,
                 currentUser: action.payload
@@ -18,6 +21,5 @@ const userReducer = (state = INITIAL_STATE, action) => {
             return state;
     }
 }
-
 
 export default userReducer;
