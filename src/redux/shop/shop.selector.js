@@ -13,14 +13,13 @@ export const selectCollections = createSelector(
 
 export const selectCollectionsForPreview = createSelector(
     [selectCollections],
-    collections => Object.keys(collections).map(key => collections[key])
+    collections => collections ? Object.keys(collections).map(key => collections[key]) : []
 );
 
 
 export const selectCollection = memoize((collectionUrlParams) => createSelector(
     [selectCollections],
-    collections =>
-        collections[collectionUrlParams]
+    collections => collections ? collections[collectionUrlParams] : null
 ));
 
 // const getPramas = memoize((state, props) => props.match.params.collectionId);
